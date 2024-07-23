@@ -1,0 +1,65 @@
+/********************************************************************************/
+Requirements:
+
+1. webpack:
+    mix.copyDirectory('app/HHH_Library/bootstrap_clockpicker/public', 'public/widgets/bootstrap_clockpicker');
+
+2. javascript:
+
+{{-- time picker --}}
+<script type="text/javascript" src={{ url('widgets/bootstrap_clockpicker/js/bootstrap-clockpicker.min.js') }}></script>
+
+<script type="text/javascript">
+    $('.clockpicker').clockpicker()
+        .find('input').change(function(){
+            console.log(this.value);
+        });
+    var input = $('#single-input').clockpicker({
+        placement: 'bottom',
+        align: 'left',
+        autoclose: true,
+        'default': 'now'
+    });
+
+</script>
+{{-- time picker END --}}
+
+3. CSS:
+
+{{-- time picker --}}
+<link rel="stylesheet" type="text/css" href={{ url('widgets/bootstrap_clockpicker/css/bootstrap-clockpicker.min.css') }}>
+{{-- time picker END --}}
+
+/********************************************************************************/
+HTML:
+
+Example::
+
+{{-- trading_hours --}}
+@php $attrName = "daily_start_time"; @endphp
+@include('back_office.widgets.form.clockpicker',
+    [
+        'attrName' => $attrName,
+        'label' => trans('PagesContent_OfficeGeneralSettings.form.' . $attrName .'.name' ),
+        'notice' => trans('PagesContent_OfficeGeneralSettings.form.' . $attrName .'.notice' ),
+        'placeholder' => trans('PagesContent_OfficeGeneralSettings.form.' . $attrName .'.placeholder' ),
+        'value' => $office_setting->trading_hours[$attrName],
+        'clockAlign' => trans('general.locale.start'),
+        'clockPlacement' => "top",
+        'donetext' => trans('general.Done'),
+    ]
+)
+
+
+/********************************************************************************/
+PHP:
+  Send requirements to blade file.
+/********************************************************************************/
+Source:
+
+Web:
+https://github.com/weareoutman/clockpicker
+
+PC:
+G:\Programing\Web\Widgets\clockpicker-gh-pages
+/********************************************************************************/

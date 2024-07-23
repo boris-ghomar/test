@@ -1,0 +1,73 @@
+/********************************************************************************/
+Requirements:
+1. angular_1-8-0.min.js
+    <script src="{{ url('js/angular_1-8-0.min.js') }}"></script>
+
+2. For localization:
+    'app/HHH_Library/general/javascript/translation/translation.js',
+    'app/HHH_Library/general/javascript/translation/lang/trans-en.js',
+    'app/HHH_Library/general/javascript/translation/lang/trans-fa.js',
+
+3. For Server connection:
+    'app/HHH_Library/general/javascript/ServerConnection.js',
+
+4. Communication with the user:
+    'app/HHH_Library/modalBox/js/modal_box.js',
+    'app/HHH_Library/modalBox/js/modal_realize.js',
+    'app/HHH_Library/modalBox/js/modal_confirm.js',
+
+5. showing Toast for results
+    'app/HHH_Library/Notifications/Toast/jquery-toast-plugin/toastController.js',
+    'app/HHH_Library/Notifications/Toast/jquery-toast-plugin/public/jquery.toast.min.js',
+    'app/HHH_Library/Notifications/Toast/jquery-toast-plugin/public/jquery.toast.min.css',
+/********************************************************************************/
+HTML:
+
+1. Add your container block to your Html view with your custom ID
+
+    <div id="YOUR_CUSTOM_ID"></div>
+
+ Example::   <div id="jsGrid"></div>
+
+2. Add your custom variable to your Javascript section in Html view for attaching Javascript data.
+
+    {!! $YOUR_CUSTOM_VARIABLE !!}
+
+Example:: {!! $jsGridJavaData !!}
+
+/********************************************************************************/
+PHP:
+
+3. Setup your table:
+
+Example::
+
+    use App\HHH_Library\jsGrid\jsGrid_Controller;
+    use App\HHH_Library\jsGrid\jsGrid_FieldMaker;
+    ////////////////////////////////////////////////////
+
+        $jsGrid_Controller = new jsGrid_Controller("jsGrid",jsGridType_Validation);
+
+        $fieldMaker = new jsGrid_FieldMaker("Name", "Name");
+        $fieldMaker->makeField_Text();
+        $fieldMaker->addValidate($fieldMaker::validator_required, null, "This item required!");
+        $fieldMaker->addValidate("function(value) {return value > 20;}", null, "The value entered must be greater than 20!");
+        $fieldMaker->addValidate($fieldMaker::validator_range,[18,25],"insert beetween 18-20");
+
+        $fieldMaker->setItemProperties($fieldMaker::field_isFiltering,false);
+
+        $jsGrid_Controller->putField($fieldMaker);
+
+        $data = [
+            config('hhh_config.keywords.jsGridJavaData')    =>  $jsGrid_Controller->create(),
+        ];
+
+        return view('back_office.pages.office_classification.index', $data);
+
+/********************************************************************************/
+Source:
+
+jQuery:
+https://code.jquery.com/ui/
+
+/********************************************************************************/

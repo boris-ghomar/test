@@ -1,0 +1,23 @@
+Source: 
+https://www.cssscript.com/minimal-json-data-formatter-jsonviewer/
+----------------------------------------------------------------
+How to use it:
+Load the following JS and CSS files into your html page.
+
+<script src="json-viewer.js"></script>
+<link rel="stylesheet" href="json-viewer.css">
+Create an element to place the formatted JSON objects.
+
+<div id="json"></div>
+Create a new JSONViewer instance.
+
+var jsonViewer = new JSONViewer();
+Append the instance to the DIV element you just created.
+
+document.querySelector("#json").appendChild(jsonViewer.getContainer());
+Format and beautify your JSON data using the showJSON() method. Available parameters:
+
+json: json Input value
+maxLvl: Process only to max level, where 0..n, -1 unlimited
+colAt: Collapse at level, where 0..n, -1 unlimited
+jsonViewer.showJSON(json, maxLvl, colAt);

@@ -1,0 +1,9 @@
+.hhh_modal_loding {
+
+    /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.jumping-dots-loader span {
+    background-color: var(--bs-primary);
+}

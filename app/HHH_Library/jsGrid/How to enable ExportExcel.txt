@@ -1,0 +1,36 @@
+1. Enable export view, add [config('hhh_config.keywords.useExcelExport') => true]  to controller index;
+
+$data = [
+            config('hhh_config.keywords.jsGridJavaData')    =>  $jsGrid_Controller->create(),
+            config('hhh_config.keywords.useExcelExport')    => true,
+        ];
+
+
+2. Create "exporter" file in "App\hhh_Exports" folder.
+
+    class TransactionExport extends SuperExport
+
+
+3. Create "Resource" & "Collection" clases in "App\Http\Resources\export" folder.
+
+4. Add "exportExcel" function to controller class.
+
+    /**
+     * This function exports the table information
+     * to an Excel file and downloads it to the user.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \App\HHH_Library\general\php\JsonResponseHelper
+     */
+    public function exportExcel(Request $request)
+    {
+        $this->authorize('viewAny', transaction_all_reseller::class);
+
+        $exporter = new TransactionExport($request->all());
+        return $exporter->export();
+    }
+
+
+5. Add "Route::post" => "export_excel" endpoint to "routes\api.php" in the relevant section.
+
+    Route::post('/export_excel',  [TransactionController::class, 'exportExcel']);

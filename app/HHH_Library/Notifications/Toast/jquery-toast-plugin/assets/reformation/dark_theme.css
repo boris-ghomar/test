@@ -1,0 +1,19 @@
+/* jQuery toast plugin (Dark-Theme) [START] */
+
+.jq-toast-wrap .jq-icon-success {
+    background-color: #258580;
+}
+
+.jq-toast-wrap .jq-icon-info {
+    background-color: #1b76bb;
+}
+
+.jq-toast-wrap .jq-icon-warning {
+    background-color: #FF9800;
+}
+
+.jq-toast-wrap .jq-icon-error {
+    background-color: #F95F53;
+}
+
+/* jQuery toast plugin (Dark-Theme) [END] */

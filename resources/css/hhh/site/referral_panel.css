@@ -1,0 +1,47 @@
+/* Referral Panel [START] */
+
+.referral_panel a.btn:focus:not(:hover) {
+    border-color: inherit;
+    outline: none;
+}
+
+.referral_panel .link {
+    line-break: anywhere;
+    color: #babcd5;
+    direction: ltr;
+}
+
+/* Rreferral Link */
+.referral_panel .referral-link {
+    color: #2caae1;
+}
+
+/* Inprogress Session */
+.referral_panel .inprogress-session {
+    color: #2caae1;
+}
+
+.referral_panel .inprogress-session ul {
+    margin: 0;
+    padding: 0;
+}
+
+.referral_panel .inprogress-session ul h6 {
+    color: #009688;
+    margin-top: 15px;
+}
+
+.referral_panel .inprogress-session ul li {
+    list-style-type: none;
+    color: #9c9fa6;
+}
+
+.referral_panel .inprogress-session ul li::before {
+    content: "*";
+    content: "\2666";
+    padding: 0 5px;
+}
+
+/* Rreferral Link END*/
+
+/* Referral Panel [END] */

@@ -1,0 +1,38 @@
+<?php
+
+namespace Kasraghoreyshi\PersianFaker;
+
+use App\HHH_Library\Faker\Persian\classes\PersianFaker;
+use Faker\Generator;
+use Illuminate\Support\ServiceProvider;
+
+class PersianFakerServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->singleton(Generator::class, function($app) {
+
+            $faker = \Faker\Factory::create(config('app.faker_locale'));
+
+            $faker->addProvider((new PersianFaker($faker)));
+
+            return $faker;
+
+        });
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+}

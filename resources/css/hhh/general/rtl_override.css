@@ -1,0 +1,23 @@
+@media (min-width: 992px) {
+    .sidebar-fixed .main-panel {
+        margin-left: 0px;
+        margin-right: 260px;
+    }
+
+    .sidebar-fixed.sidebar-icon-only .main-panel {
+        margin-left: 0px;
+        margin-right: 70px;
+    }
+}
+
+/* bootstrap improve*/
+.nav-tabs {
+    padding: unset !important;
+}
+
+/* bootstrap improve END*/
+
+.font-weight-bold {
+    font-weight: normal !important;
+    font-family: "Manrope-bold", sans-serif;
+}

@@ -1,0 +1,132 @@
+/* mobile: portrait */
+@media screen and (max-width: 991px) and (orientation:portrait) {
+
+    /* profile dropdown */
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+        width: 100%;
+    }
+
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+        right: auto;
+        left: 0;
+    }
+
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item {
+        margin-left: 0.25rem;
+    }
+
+    /* Profile */
+    .card .card-body {
+        padding: 10px;
+    }
+
+    /* Profile */
+    .tab-photo {
+        flex-direction: column;
+    }
+
+    /* Profile */
+    .tab-photo img {
+        margin-bottom: 20px;
+    }
+
+    /* Post Gallery Pages */
+    .card-columns .card {
+        margin-bottom: 12px;
+    }
+}
+
+@media screen and (max-width: 991px) and (orientation:landscape) {
+
+    /* profile dropdown */
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+        min-width: 30%;
+        width: auto;
+        right: 0px;
+        left: auto;
+    }
+
+    .rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+        right: auto;
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    :root {
+        --navbar-height: 65px;
+    }
+
+    .row>* {
+        padding-right: inherit;
+        padding-left: inherit;
+    }
+
+    .content-wrapper {
+        padding: 30px;
+    }
+
+    .sidebar-offcanvas.active {
+        left: 0;
+    }
+
+    .rtl .sidebar-offcanvas.active {
+        right: 0;
+    }
+
+    .sidebar-offcanvas {
+        position: fixed;
+        bottom: 0;
+        overflow: auto;
+        left: -237px;
+        -webkit-transition: all 0.25s ease-out;
+        -o-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+    }
+
+    .rtl .sidebar-offcanvas {
+        right: -237px;
+    }
+
+    .navbar .navbar-menu-wrapper,
+    .navbar .navbar-brand-wrapper {
+        height: auto;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    /* navbar Height [START] */
+
+    /* Register only the items related to the height of the new bar */
+
+    .navbar .navbar-menu-wrapper,
+    .navbar .navbar-brand-wrapper {
+        height: var(--navbar-height);
+    }
+
+    .sidebar,
+    .sidebar-offcanvas,
+    .main-panel,
+    .page-body-wrapper {
+        min-height: calc(100vh - var(--navbar-height));
+    }
+
+    .sidebar-offcanvas,
+    .sidebar-fixed .sidebar .nav {
+        max-height: calc(100vh - var(--navbar-height));
+    }
+
+
+    .page-body-wrapper {
+        padding-top: var(--navbar-height);
+    }
+
+    .sidebar-offcanvas,
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown {
+        top: var(--navbar-height);
+    }
+
+    /* navbar Height [END] */
+
+}

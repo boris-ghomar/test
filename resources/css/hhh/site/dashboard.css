@@ -1,0 +1,57 @@
+/* Dashboard [START] */
+
+.dashboard a.btn:focus:not(:hover) {
+    border-color: inherit;
+    outline: none;
+}
+
+/* Domain [START]*/
+.dashboard .domain {
+    color: #2caae1;
+}
+
+.dashboard .domain a {
+    display: block;
+    direction: ltr;
+    line-break: anywhere;
+    color: #babcd5;
+}
+
+.dashboard .domain a:hover {
+    opacity: 0.7;
+}
+
+/* Domain [END]*/
+
+/* statistics */
+.dashboard .statistics-title {
+    color: #7b9fb1;
+}
+
+.dashboard .statistics-value {
+    color: #adb5bd;
+    text-align: center;
+    font-size: medium;
+}
+
+/* statistics [END]*/
+
+/* Telegram */
+.dashboard .telegram {
+    color: #46c35f;
+}
+/* Telegram [END]*/
+
+/* Note */
+.dashboard .note {
+    color: #f6e84e;
+}
+/* Note [END]*/
+
+/* Referral */
+.dashboard .referral {
+    color: #2caae1;
+}
+/* Referral [END]*/
+
+/* Dashboard [END] */

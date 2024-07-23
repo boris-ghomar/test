@@ -1,0 +1,34 @@
+<?php
+
+use App\Enums\Database\DatabaseTablesEnum;
+use App\Enums\Database\Tables\TechnicalSettingsTableEnum as TableEnum;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create(DatabaseTablesEnum::TechnicalSettings->tableName(), function (Blueprint $table) {
+            $table->id();
+            $table->string(TableEnum::Name->dbName())->unique()->comment("unique name string used as a key for settings.");
+            $table->text(TableEnum::Value->dbName())->nullable()->comment("value of the setting.");
+            $table->string(TableEnum::Cast->dbName(), 20)->comment("cast type will be used to cast the value to string, integer or boolean etc.");
+            $table->timestamps();
+        });
+
+        // php artisan migrate:refresh --path=/database/migrations/2023_10_08_055844_create_technical_settings_table.php
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists(DatabaseTablesEnum::TechnicalSettings->tableName());
+    }
+};

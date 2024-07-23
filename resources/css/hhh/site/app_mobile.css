@@ -1,0 +1,52 @@
+@media screen and (max-width: 991px) {
+
+    .chat-page .content-wrapper {
+        padding: 8px 8px 0px 8px;
+    }
+
+    .chat-page .footer {
+        display: none;
+    }
+
+    .chat-page-messages {
+        height: 78vh;
+    }
+
+    .chat-new-message {
+        position: fixed;
+        bottom: 0;
+        width: 96%;
+        background-color: #191b20;
+    }
+}
+
+
+/* mobile: portrait */
+@media screen and (max-width: 991px) and (orientation:portrait) {
+    .post-actions {
+        border-top: 1px solid #4A4C55;
+        margin: 10px 0;
+    }
+
+    .site-breadcrumb {
+        display: none;
+    }
+
+    .basic-table-mobile {
+        display: unset;
+    }
+
+    .basic-table-desktop {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 991px) and (orientation:landscape) {
+    .chat-page-messages {
+        height: 52vh;
+    }
+
+    .chat-new-message {
+        width: 98%;
+    }
+}

@@ -1,0 +1,126 @@
+/* chat-page [START] */
+
+.chat-page .form-group {
+    margin-bottom: 8px;
+}
+
+.messages-container {
+    height: 72vh;
+    overflow-y: scroll;
+
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.messages-container::-webkit-scrollbar {
+    display: none;
+}
+
+.messages-container .card {
+    width: auto;
+}
+
+.chat-image {
+    max-height: 150px;
+    width: auto;
+    cursor: pointer;
+}
+
+/* chat-page [END] */
+
+/* chat [END] */
+
+/* Messenger [START] */
+/*
+messenger-section is just used for personnel view
+*/
+.messenger-section {
+    width: 75%;
+}
+
+.messenger.messages-container {
+    height: 72vh;
+    overflow-y: scroll;
+
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+}
+
+.messenger .chat-message {
+    margin-top: 5px;
+    --bs-gutter-x: unset;
+}
+
+.messenger .chat-message .card[data-is-user-message="true"] {
+
+    background-color: #252730;
+}
+
+.messenger .chat-message .card[data-is-user-message="false"] {
+
+    background-color: darkslategrey;
+}
+
+.messenger .chat-message .card-body {
+    padding: 8px;
+    /* --bs-gutter-x: unset; */
+}
+
+.messenger .chat-message .submit-section {
+
+    display: grid;
+}
+
+.messenger .chat-message a {
+    color: lightblue;
+}
+
+.messenger .chat-message .msg-time {
+    font-size: 12px;
+    color: cadetblue;
+}
+
+/* Messenger [END] */
+
+/* Messenger-sidebar [START] */
+
+/*
+Messenger sidebar is used only for personnel
+To display additional data for support.
+ */
+
+.messenger-sidebar {
+    width: 25%;
+    border: 1px solid #4A4C55;
+    padding-top: 1rem;
+}
+
+.messenger-sidebar .data-row {
+    padding-top: 0.5rem;
+}
+
+.messenger-sidebar .data-row .data-value {
+    color: #aab2bd;
+}
+
+@media screen and (max-width: 991px) {
+
+    /* Hide messenger-sidebar in mobile view [START]*/
+    .messenger-section {
+        width: 100%;
+        padding: 0px 12px;
+    }
+
+    .messenger-sidebar {
+        display: none;
+    }
+
+    /* Hide messenger-sidebar in mobile view [END]*/
+}
+
+/* Messenger-sidebar [END] */

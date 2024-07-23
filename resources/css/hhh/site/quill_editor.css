@@ -1,0 +1,43 @@
+:root {
+    --ql-def-color: #a19d9d;
+    --ql-def-bg-color: #1e1e1c;
+}
+
+.ql-container {
+    font-family: "Manrope-medium", sans-serif;
+    height: auto;
+    min-height: 300px;
+    color: #e9e6e6;
+}
+
+.rtl .ql-toolbar.ql-snow .ql-picker-label {
+    direction: rtl;
+    text-align: center;
+}
+
+.ql-picker-options,
+.ql-snow .ql-picker-options {
+    background-color: var(--ql-def-bg-color);
+    color: var(--ql-def-color);
+}
+
+.rtl .ql-picker-options {
+    direction: ltr;
+
+}
+
+.ql-snow .ql-tooltip {
+    transform: translateY(10px) translateX(35px);
+    background-color: var(--ql-def-bg-color);
+    color: var(--ql-def-color);
+}
+
+.rtl .ql-snow .ql-tooltip {
+    transform: translateY(10px) translateX(-148px);
+}
+
+.ql-editor.ql-blank::before {
+    color: #808191;
+    text-align: start;
+    margin: 12px 17px;
+}

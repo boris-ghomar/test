@@ -1,0 +1,313 @@
+/********************************************************************************/
+CSS:
+(custom_css section)
+
+1. Add CSS file to your page:
+
+<link rel="stylesheet" href="{{ url('assets/general/widgets/charts/chart_js/css/chart_js.min.css') . $resourceVersion }}">
+
+/********************************************************************************/
+javaScript:
+(custom_js section)
+
+1. Add JavaScript file to your page:
+<script src="{{ url('assets/general/widgets/charts/chart_js/js/chart.min.js') . $resourceVersion }}"></script>
+
+2. Add your variable to inject JavaScript configs from PHP
+Example:
+{!! $referredPerformanceChartScript !!}
+
+
+
+/********************************************************************************/
+
+HTML:
+(content section)
+
+1. Add block to your desire section in page to load html view of chart.
+
+Example:
+<div class="row flex-grow">
+    {!! $referredPerformanceChartView !!}
+</div>
+
+/********************************************************************************/
+PHP:
+Create your chart via chart creator classes (exmp: ChartJsLine)
+
+/********************************************************************************/
+Sample:
+
+# custom_css:
+
+<link rel="stylesheet" href="{{ url('assets/general/widgets/charts/chart_js/css/chart_js.min.css') . $resourceVersion }}">
+
+#custom_js
+
+<script src="{{ url('assets/general/widgets/charts/chart_js/js/chart.min.js') . $resourceVersion }}"></script>
+{!! $referredPerformanceChartScript !!}
+
+# Content blade
+
+<div class="row flex-grow">
+    {!! $referredPerformanceChartView !!}
+</div>
+
+# php
+
+    public function index()
+    {
+        $chartHtmlContainerId = "ReferredPerformanceChartContainer";
+
+        $currentWeekDataSet = DataSetConfigThemesEnum::Orange->create(__('chart.CurrentWeek'), [25, 12, 0, 13]);
+        $lastWeekDataSet = DataSetConfigThemesEnum::Gray->create(__('chart.LastWeek'), [12, 0, 1, 2, 15, 20, 2]);
+
+        $dataConfig = (new DataConfig())
+            ->setLabels(array_values(WeekDayEnum::getCollectionList(false, false, LocaleEnum::Persian)))
+            ->addDataSet($chartHtmlContainerId, $currentWeekDataSet)
+            ->addDataSet($chartHtmlContainerId, $lastWeekDataSet)
+            ;
+
+        $scaleX = (new ScaleConfig())
+            ->setTitle(
+                (new TitleConfig())
+                    ->setDisplay(true)
+                    ->setText(__('chart.Day'))
+            )
+            ->setBorder(new BorderConfig)
+            ->setGrid(new GridConfig)
+            ->setTicks((new TicksConfig)->setMaxTicksLimit(7));
+
+        $scaleY = (new ScaleConfig())
+            ->setTitle(
+                (new TitleConfig())
+                    ->setDisplay(true)
+                    ->setText(__('chart.Total'))
+            )
+            ->setBorder(
+                (new BorderConfig)
+            )
+            ->setGrid(new GridConfig)
+            ->setTicks((new TicksConfig)->setMaxTicksLimit(5));
+
+        $legend = (new LegendConfig)
+            ->setDisplay(true)
+            ->setLabels(new LabelsConfig);
+
+        $options = (new OptionsConfig)
+            ->addElementLine((new LineConfig)->setTension(0.4))
+            ->addScaleX($scaleX)
+            ->addScaleY($scaleY)
+            ->addPluginLegend($legend)
+            ->addPluginTooltips(new TooltipsConfig);
+
+        $chartConfig = (new ChartJsLine($chartHtmlContainerId))
+            ->setContainerCssCols(12)
+            ->setCardTitle(__('thisApp.Site.ReferralPanel.ReferredPerformanceChart.CardTitle'))
+            ->setCardSubtitle(__('thisApp.Site.ReferralPanel.ReferredPerformanceChart.CardSubtitle'))
+            ->setDataConfig($dataConfig)
+            ->setOptions($options);
+
+
+        $data =  [
+            'referredPerformanceChartScript' => $chartConfig->createScript(),
+            'referredPerformanceChartView' => $chartConfig->createView(),
+        ];
+
+        return view('hhh.Site.pages.ReferralPanel.index', $data);
+    }
+
+/********************************************************************************/
+
+Sample raw
+
+1. Blade
+
+<div class="row flex-grow">
+    <div class="col-12 col-lg-4 col-lg-12 grid-margin stretch-card">
+        <div class="card card-rounded">
+            <div class="card-body chartjs">
+
+
+                <div class="d-sm-flex justify-content-between align-items-start">
+                    <div>
+                        <h4 class="card-title card-title-dash">Performance Line Chart</h4>
+                        <h5 class="card-subtitle card-subtitle-dash">Lorem Ipsum is simply dummy text of the printing
+                        </h5>
+                    </div>
+                    <div id="performanceLine-legend">
+                    </div>
+                </div>
+                <div class="chartjs-wrapper mt-4">
+                    <canvas id="performanceLine" width="448" height="150"
+                        style="display: block; box-sizing: border-box; height: 150px; width: 448px;"></canvas>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+2. javaScript config
+
+<script>
+    (function($) {
+        'use strict';
+        $(function() {
+            if ($("#performanceLine").length) {
+                const ctx = document.getElementById('performanceLine');
+                var graphGradient = document.getElementById("performanceLine").getContext('2d');
+                var graphGradient2 = document.getElementById("performanceLine").getContext('2d');
+                var saleGradientBg = graphGradient.createLinearGradient(5, 0, 5, 100);
+                saleGradientBg.addColorStop(0, 'rgba(251, 150, 0, 0.18)');
+                saleGradientBg.addColorStop(1, 'rgba(251, 150, 0, 0.02)');
+                var saleGradientBg2 = graphGradient2.createLinearGradient(100, 0, 50, 150);
+                saleGradientBg2.addColorStop(0, 'rgba(251, 255, 255, 0)');
+                saleGradientBg2.addColorStop(1, 'rgba(251, 255, 255, 0)');
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["SUN", "sun", "MON", "mon", "TUE", "tue", "WED", "wed", "THU",
+                            "thu", "FRI", "fri", "SAT"
+                        ],
+                        datasets: [{
+                            label: 'This week',
+                            data: [50, 110, 60, 290, 200, 115, 130, 170, 90, 210, 240, 280,
+                                200
+                            ],
+                            backgroundColor: saleGradientBg,
+                            borderColor: [
+                                '#F29F67',
+                            ],
+                            borderWidth: 1.5,
+                            fill: true, // 3: no fill
+                            pointBorderWidth: 1,
+                            pointRadius: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+                            pointHoverRadius: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                            pointBackgroundColor: ['#F29F67', '#F29F67', '#F29F67',
+                                '#F29F67)', '#F29F67', '#F29F67', '#F29F67', '#F29F67)',
+                                '#F29F67', '#F29F67', '#F29F67', '#F29F67)'
+                            ],
+                            pointBorderColor: ['#252730', '#252730', '#252730', '#252730',
+                                '#252730', '#252730', '#252730', '#252730', '#252730',
+                                '#252730', '#252730', '#252730', '#252730',
+                            ],
+                        }, {
+                            label: 'Last week',
+                            data: [30, 150, 190, 250, 120, 150, 130, 20, 30, 15, 40, 95,
+                                180
+                            ],
+                            backgroundColor: saleGradientBg2,
+                            borderColor: [
+                                '#808191',
+                            ],
+                            borderWidth: 1.5,
+                            fill: true, // 3: no fill
+                            pointBorderWidth: 1,
+                            pointRadius: [0, 0, 0, 4, 0],
+                            pointHoverRadius: [0, 0, 0, 2, 0],
+                            pointBackgroundColor: ['#808191)', '#808191', '#808191',
+                                '#808191', '#808191)', '#808191', '#808191', '#808191',
+                                '#808191)', '#808191', '#808191', '#808191', '#808191)'
+                            ],
+                            pointBorderColor: ['#252730', '#252730', '#252730', '#252730',
+                                '#252730', '#252730', '#252730', '#252730', '#252730',
+                                '#252730', '#252730', '#252730', '#252730',
+                            ],
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        elements: {
+                            line: {
+                                tension: 0.4,
+                            }
+                        },
+                        scales: {
+                            y: {
+                                border: {
+                                    display: false
+                                },
+                                grid: {
+                                    display: true,
+                                    drawTicks: false,
+                                    color: "#383A42",
+                                    zeroLineColor: '#383A42',
+                                },
+                                ticks: {
+                                    beginAtZero: false,
+                                    autoSkip: true,
+                                    maxTicksLimit: 4,
+                                    color: "#808191",
+                                    font: {
+                                        size: 10,
+                                    }
+                                }
+                            },
+                            x: {
+                                border: {
+                                    display: false
+                                },
+                                grid: {
+                                    display: false,
+                                    drawTicks: false,
+                                },
+                                ticks: {
+                                    beginAtZero: false,
+                                    autoSkip: true,
+                                    maxTicksLimit: 7,
+                                    color: "#6B778C",
+                                    font: {
+                                        size: 10,
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false,
+                            },
+                            tooltips: {
+                                backgroundColor: 'rgba(31, 59, 179, 1)',
+                            },
+                        }
+                    },
+                    plugins: [{
+                        afterDatasetUpdate: function(chart, args, options) {
+                            const chartId = chart.canvas.id;
+                            var i;
+                            const legendId = `${chartId}-legend`;
+                            const legendElement = document.getElementById(legendId);
+
+                            if (legendElement.children.length == 0) {
+
+                                const ul = document.createElement('ul');
+                                ul.classList = 'labels-container';
+                                for (i = 0; i < chart.data.datasets.length; i++) {
+
+                                    var labelItem = "";
+                                    labelItem += '<li class="label">';
+                                    labelItem +=
+                                        '<span class="" style="background-color: ';
+                                    labelItem += chart.data.datasets[i].borderColor;
+                                    labelItem += '"></span>';
+                                    labelItem += chart.data.datasets[i].label;
+                                    labelItem += '</li>';
+
+                                    ul.innerHTML += labelItem;
+                                }
+                                return legendElement.appendChild(ul);
+                            }
+
+                        }
+                    }]
+                });
+            }
+
+        });
+
+    })(jQuery);
+</script>

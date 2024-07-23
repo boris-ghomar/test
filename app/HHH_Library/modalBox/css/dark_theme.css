@@ -1,0 +1,29 @@
+:root {
+    --bs-body-color: #808191;
+}
+
+.hhh_modal-content {
+    background-color: #323748;
+    border: 1px solid #4A4C55;
+    color: #b2b3c9;
+}
+
+.hhh_modal-header {
+    color: var(--bs-body-color);
+}
+
+.hhh_modal-body {
+    border-top: 1px solid #4A4C55;
+    border-bottom: 1px solid #4A4C55;
+    text-align: justify;
+}
+
+.hhh_modal-body a {
+    color: mediumseagreen;
+    text-decoration: none;
+}
+
+input#btn_realized_modalRealize_jsGrid {
+    background-color: #808191;
+
+}

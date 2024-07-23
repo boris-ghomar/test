@@ -1,0 +1,351 @@
+:root {
+    --post-p-text-indent: 15px;
+}
+
+/* language direction */
+.ltr {
+    direction: ltr;
+}
+
+/* language direction END */
+
+/* Remove Arrows/Spinners from number input */
+input.no-arrows::-webkit-outer-spin-button,
+input.no-arrows::-webkit-inner-spin-button {
+    /* Chrome, Safari, Edge, Opera */
+    -webkit-appearance: none;
+
+    /* Firefox */
+    -moz-appearance: textfield;
+}
+
+/*
+*  Replace enter (\n)  with line
+*/
+.text-enter {
+    white-space: pre-line;
+}
+
+/* clockPicker */
+.popover-title {
+    direction: ltr !important;
+}
+
+/* clockPicker END */
+
+/* ducumentation */
+
+ul.counter-list {
+    list-style-type: decimal;
+}
+
+ul.circle-list {
+    list-style-type: circle;
+}
+
+
+.docs-hyperlink {
+    padding-top: 75px;
+}
+
+.docs-hyperlink a {
+    color: var(--primary);
+}
+
+.docs-hyperlink a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.docs-api-link {
+    color: green;
+    padding: 0 10px;
+}
+
+.docs-table thead {
+    color: greenyellow;
+}
+
+.docs-table td {
+    white-space: normal !important;
+    line-height: normal !important;
+}
+
+.docs-table-title {
+    text-align: center;
+    color: gold;
+    font-size: 1.5rem !important;
+}
+
+/* ducumentation END */
+
+/* tabs */
+
+.tabs-media-icon {
+    width: 100px;
+}
+
+.tab-item-label {
+    color: #c6c8cb;
+}
+
+.nav-tabs .nav-item {
+    flex: 1 1 auto !important;
+}
+
+/* tabs END */
+
+
+/* switch */
+.custom-switch :hover {
+    cursor: pointer;
+}
+
+/* switch END*/
+
+.brand-logo-errorpage {
+    max-width: 250px;
+    opacity: 0.70;
+}
+
+/* Post [START] */
+.post {
+    text-align: justify;
+}
+
+.post .card-body.ql-editor {
+    white-space: unset;
+    padding: 0px 1.5rem;
+}
+
+.post .title {
+
+    font-size: 1.5rem;
+    margin: 25px 15px 15px 15px;
+    text-align: justify;
+}
+
+.post .card-body {
+    padding: 0;
+}
+
+.ql-editor p {
+    line-height: 1.6rem;
+    text-indent: var(--post-p-text-indent);
+    margin-top: 5px;
+}
+
+.ql-editor img {
+    width: 100%;
+    height: auto;
+    margin-inline-start: calc(-1 * var(--post-p-text-indent));
+}
+
+.post-faq {
+    line-height: 1.6rem;
+    padding: 0px 15px;
+}
+
+.post-faq .card-body {
+    line-height: 2rem;
+    padding: 1.5rem 1.5rem;
+}
+
+.pinned-post .pin-icon {
+    position: absolute;
+    transform: rotate(45deg);
+    color: gold;
+}
+
+/* Post [END] */
+
+/* link-list [START] */
+.link-list .title {
+
+    font-size: 1.0rem;
+    margin: 0px 15px;
+    text-align: justify;
+}
+
+.link-list .results {
+    padding: 0 20px;
+}
+
+.link-list a {
+
+    text-decoration: none;
+}
+
+.link-list h1 {
+    color: steelblue;
+}
+
+.link-list h2 {
+    font-size: 1rem;
+    color: cadetblue;
+}
+
+/* link-list [END] */
+
+/* post-actions [START] */
+.post-actions {
+    border-top: 1px solid #4A4C55;
+    margin: 10px 20px;
+}
+
+.post-actions .btn.btn-icon {
+    padding: 0.875rem 0.3rem;
+}
+
+.comment-actions .btn.btn-icon i,
+.post-actions .btn.btn-icon i {
+    font-size: 1.5rem;
+}
+
+/* post-actions [END] */
+
+/* Comments [START] */
+.comment-actions .btn.btn-icon {
+    padding: 0.3rem 0.3rem;
+}
+
+/* This calss is used in javascript: _user_actions.js */
+.comment-box {
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+/* This calss is used in javascript: _user_actions.js */
+.selected-comment {
+    background-color: rgba(0, 0, 0, 0.6);
+
+}
+
+.liked {
+    color: rgb(255 48 64);
+}
+
+/* Comments [END] */
+
+/* chat [START] */
+.chat h5,
+.basic-table-topic .card-title {
+    color: #9e9fad;
+    padding: 0 0.25rem;
+}
+
+.basic-table-topic-link {
+    cursor: pointer;
+}
+
+
+.basic-table-topic-link:hover {
+    opacity: 0.6;
+}
+
+.basic-table-desktop th,
+.basic-table-desktop td,
+.basic-table-mobile th,
+.basic-table-mobile td {
+
+    white-space: inherit;
+    line-height: normal;
+}
+
+.basic-table-mobile {
+    display: none;
+}
+
+/* chat-page [START] */
+
+.chat-page .form-group {
+    margin-bottom: 8px;
+}
+
+.chat-page-messages {
+    height: 72vh;
+    overflow-y: scroll;
+
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chat-page-messages::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-page-messages .card {
+    width: auto;
+}
+
+.chat-new-message {
+    /* position: fixed; */
+    /* bottom: 70px; */
+    padding: 0px;
+}
+
+.chat-image {
+    max-height: 150px;
+    width: auto;
+    cursor: pointer;
+}
+
+/* chat-page [END] */
+
+/* chat [END] */
+
+/* form-box [START] */
+/* Display a form inside the box */
+.form-box {
+    border: 1px solid #4A4C55 !important;
+    padding: 0.5rem;
+}
+
+.form-box>label:first-child {
+    display: table;
+    margin-top: -1.2rem;
+    background-color: #252730;
+    padding: 0px 10px;
+}
+
+/* form-box [END] */
+
+/* Chat float icon [START] */
+
+.floating-chat {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+    color: white;
+    position: fixed;
+    padding: 0;
+    bottom: 25px;
+    left: 13px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.floating-chat:hover {
+    color: white;
+    opacity: 80%;
+}
+
+/* Chat float icon [END] */
+
+/* Card [START] */
+.card .footer-text {
+    font-size: 0.8rem;
+}
+
+/* Statics cards circle*/
+.card.card-img-holder .card-img-absolute {
+    border-radius: 15px;
+}
+
+/* Card [END] */

@@ -1,0 +1,82 @@
+/* Js-grid */
+
+.hhh_jsgridTable {
+    /* for break words in coloumbs */
+    table-layout: fixed;
+    width: 100%;
+    /* for break words in coloumbs END*/
+    /* text-align: center; */
+}
+
+.jsgrid .jsgrid-grid-body {
+    min-height: 60vh;
+}
+
+.jsgrid .jsgrid-button {
+    background-image: url("icons-black.png") !important;
+}
+
+.jsgrid .jsgrid-grid-header {
+    border: 1px solid #ebedf2;
+    border-top: 0;
+}
+
+.jsgrid .jsgrid-table th {
+    font-weight: initial;
+    font-family: "ubuntu-bold", sans-serif;
+}
+
+.jsgrid .jsgrid-table .jsgrid-filter-row input[type=number] {
+    padding: .56rem 0;
+}
+
+.jsgrid .jsgrid-header-sort:before {
+    margin-top: 10px;
+    float: right;
+}
+
+.jsgrid .jsgrid-header-sort-asc:before {
+    border-color: transparent transparent #343a40;
+}
+
+.jsgrid .jsgrid-header-sort-desc:before {
+    border-color: #343a40 transparent transparent;
+}
+
+.jsgrid .jsgrid-pager {
+    line-height: 2;
+    align-items: center;
+}
+
+.jsgrid .jsgrid-pager-current-page {
+    padding: 0.5rem 0.75rem;
+    font-weight: initial;
+    line-height: 1.25;
+}
+
+.jsgrid-filter-row textarea,
+.jsgrid-edit-row textarea,
+.jsgrid-insert-row textarea {
+    resize: both;
+}
+
+.jsgrid-cell {
+    /* This command converts "\n" to a new line when displayed */
+    white-space: pre-wrap;
+}
+
+/****** Datepicker *******/
+.hasDatepicker {
+    width: 100px;
+    text-align: center;
+}
+
+.ui-datepicker * {
+    font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+    font-size: 14px;
+    font-weight: 300 !important;
+}
+/****** Datepicker END *******/
+
+
+/* Js-grid end*/

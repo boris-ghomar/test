@@ -1,0 +1,50 @@
+/* jQuery toast plugin  */
+.jq-toast-wrap {
+    width: 300px !important;
+}
+
+.jq-toast-single {
+    font-family: "ubuntu-regular", sans-serif !important;
+    text-align: justify !important;
+    font-size: 14px !important;
+
+}
+
+.jq-toast-single h2 {
+    font-family: "ubuntu-bold", sans-serif !important;
+}
+
+.close-jq-toast-single {
+    left: 7px;
+    text-align: end !important;
+}
+
+.rtl .jq-has-icon {
+    background-position: right 10px center !important;
+    padding: 10px 50px 10px 10px !important;
+}
+
+
+.jq-toast-loader{
+    background-color: inherit !important;
+
+    filter:brightness(80%)  !important;
+}
+.jq-icon-info {
+    color: #fff !important;
+}
+
+.jq-icon-warning {
+    color: #fff !important;
+    background-color: #fbaf5d;
+}
+
+.jq-icon-error {
+    color: #fff !important;
+}
+
+.jq-icon-success {
+    color: #fff !important;
+}
+
+/* jQuery toast plugin  END */

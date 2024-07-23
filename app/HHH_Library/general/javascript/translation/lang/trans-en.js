@@ -1,0 +1,39 @@
+var trans_en = {
+    buttons: {
+        iRealized: "I Realized",
+        YES: "YES",
+        NO: "NO",
+        OK: "OK",
+        CANCEL: "CANCEL",
+    },
+    alert: {
+        Delete: "Delete alert!",
+        Confirm: "Confirm request",
+    },
+    server: {
+        ServerError: "Server Error",
+    },
+    result: {
+        success: "Success",
+        failed: "Failed",
+    },
+    general: {
+        response: "Response",
+        result: "Result",
+        info: "Info",
+        warning: "Warning",
+        danger: "Danger",
+    },
+    date: {
+        fromDate: "From Date",
+        toDate: "To Date",
+    },
+    number: {
+        fromNumber: "From Number",
+        toNumber: "To Number",
+    },
+    export: {
+        reviewMessage: "Your export request is being reviewed, please wait to complete.",
+    },
+    custom: {},
+};

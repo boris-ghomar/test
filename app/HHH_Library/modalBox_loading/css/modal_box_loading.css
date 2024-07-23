@@ -1,0 +1,33 @@
+/*************** The Modal Loading ********************/
+
+/* Loading views is for bootstrap. */
+
+.hhh_modal_loding {
+    /* Hidden by default */
+    display: none;
+    /* Stay in place */
+    position: fixed;
+    /* Sit on top */
+    z-index: 100000;
+    /* Location of the box; vh: Relative to 1% of the height of the viewport; 50 vh = 50% viewport**/
+    padding-top: 50vh;
+    left: 0;
+    top: 0;
+    /* Full width */
+    width: 100%;
+    /* Full height */
+    height: 100%;
+    /*Enable scroll if needed */
+    overflow: auto;
+    /* Fallback color */
+    background-color: rgb(0, 0, 0);
+    /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.2);
+
+}
+
+.jumping-dots-loader span {
+    background-color: #b66dff;
+}
+
+/*************** The Modal Loading END ********************/
