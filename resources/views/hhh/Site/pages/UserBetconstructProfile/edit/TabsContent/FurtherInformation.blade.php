@@ -25,6 +25,7 @@
 
 {{-- birth_date_stamp --}}
 @php $attrName = $ClientExtrasTableEnum::BirthDateStamp->dbName(); @endphp
+@if(empty($userProfileExtra->$attrName))
 @include('hhh.widgets.form.date-input-field', [
     'type' => 'text',
     'attrName' => $attrName,
@@ -35,6 +36,7 @@
     'placeholder' => trans('PagesContent_UserBetconstructProfile.form.' . $attrName . '.placeholder'),
     'value' => $userProfileExtra->$attrName,
 ])
+@endif
 
 {{-- ProvinceInternal --}}
 @php $attrName = $ClientExtrasTableEnum::ProvinceInternal->dbName(); @endphp
